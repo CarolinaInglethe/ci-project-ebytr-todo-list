@@ -8,3 +8,10 @@ const collection = 'tasksList';
 use(database);
 // Create a new collection.
 db.createCollection(collection);
+
+use("ebytrTodoList");
+db.tasksList.insert({
+    name: 'estudar', 
+    creationDate: new Date(),
+    status: 'pendente'
+})
