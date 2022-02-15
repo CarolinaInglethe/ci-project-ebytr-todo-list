@@ -1,5 +1,7 @@
-const app = require('express')();
-// const bodyParser = require('body-parser');
+const express = require('express');
+
+const app = express();
+
 const routeTasksList = require('./routes/tasksList');
 const error = require('./middlewares/error');
 
@@ -7,7 +9,7 @@ require('dotenv').config();
 
 const PORT = process.env.PORT || 3001;
 
-// app.use(bodyParser);
+app.use(express.json());
 
 app.use('/tasks', routeTasksList);
 
