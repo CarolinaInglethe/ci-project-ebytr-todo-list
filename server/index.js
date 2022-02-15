@@ -1,10 +1,9 @@
 const app = require('express')();
+const routeTasksList = require('./routes/tasksList');
 // const bodyParser = require('body-parser');
 
 // app.use(bodyParser);
 
-app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Sucesso' });
-});
+app.use('/tasks', routeTasksList);
 
 app.listen(3001, () => console.log('Online 3001'));
