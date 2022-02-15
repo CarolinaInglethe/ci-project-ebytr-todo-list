@@ -1,5 +1,6 @@
 const createTaskService = require('../services/createTaskService');
 
+// eslint-disable-next-line consistent-return
 module.exports = async (req, res, next) => {
   try {
     const { name, status } = req.body;

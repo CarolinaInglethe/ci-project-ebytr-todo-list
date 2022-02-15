@@ -1,6 +1,7 @@
 // middleware de erro utilizavel por qualquer rota de throw , catch e next
 
-module.exports = (err, _req, res) => {
+// eslint-disable-next-line no-unused-vars
+module.exports = (err, _req, res, _next) => {
   // se existir status no objeto error do throw e catch
   // retorna status e mensagem do objeto:
   if (err.status) {
