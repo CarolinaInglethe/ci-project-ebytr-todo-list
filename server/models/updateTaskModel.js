@@ -2,12 +2,14 @@ const { ObjectId } = require('mongodb');
 const connection = require('./connection');
 
 module.exports = async (id, name, status) => {
+  if (!ObjectId.isValid(id)) return null;
+
   const collectionTasksList = await connection()
     .then((db) => db.collection('tasksList'));
 
-  const updateTask = await collectionTasksList.updateOne(
+  await collectionTasksList.updateOne(
     { _id: ObjectId(id) },
     { $set: { name, status, creationDate: new Date() } },
   );
-  return updateTask;
+  return { message: 'task updated successfully' };
 };

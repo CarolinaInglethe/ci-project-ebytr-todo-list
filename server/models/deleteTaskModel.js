@@ -2,11 +2,13 @@ const { ObjectId } = require('mongodb');
 const connection = require('./connection');
 
 module.exports = async (id) => {
+  if (!ObjectId.isValid(id)) return null;
+
   const collectionTasksList = await connection()
     .then((db) => db.collection('tasksList'));
 
-  const deletedTask = await collectionTasksList.deleteOne(
+  await collectionTasksList.deleteOne(
     { _id: ObjectId(id) },
   );
-  return deletedTask;
+  return { message: 'task deleted successfully' };
 };

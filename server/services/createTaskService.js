@@ -12,7 +12,7 @@ module.exports = async (name, status) => {
 
   if (existTask) throw errorMessage(409, 'Task already registered');
 
-  await createTaskModel(name, status);
+  const createdTask = await createTaskModel(name, status);
 
-  return { message: 'task created successfully' };
+  return createdTask;
 };
