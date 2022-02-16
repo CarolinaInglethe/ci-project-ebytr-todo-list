@@ -3,7 +3,7 @@ const updateTasksService = require('../services/updateTaskService');
 // eslint-disable-next-line consistent-return
 module.exports = async (req, res, next) => {
   try {
-    const nameParam = req.params;
+    const nameParam = req.params.name;
     const { name, status } = req.body;
 
     const updateTask = await updateTasksService(nameParam, name, status);
