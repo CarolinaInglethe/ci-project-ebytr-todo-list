@@ -6,6 +6,6 @@ const updateTaskController = require('../controllers/updateTaskController');
 
 router.get('/', getAllTasksController);
 router.post('/', createTaskController);
-router.put('/:name', updateTaskController);
+router.put('/:id', updateTaskController);
 
 module.exports = router;
