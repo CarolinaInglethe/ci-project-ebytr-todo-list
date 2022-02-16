@@ -7,7 +7,7 @@ module.exports = async (id, name, status) => {
 
   const updateTask = await collectionTasksList.updateOne(
     { _id: ObjectId(id) },
-    { $set: { name, status } },
+    { $set: { name, status, creationDate: new Date() } },
   );
   return updateTask;
 };
