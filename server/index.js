@@ -16,3 +16,5 @@ app.use('/tasks', routeTasksList);
 app.use(error);
 
 app.listen(PORT, () => console.log(`Online na porta ${PORT}`));
+
+module.exports = app;
