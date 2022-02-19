@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ./tests/**/*",
     "client": "npm run dev --prefix client",
     "server": "nodemon index.js --prefix server",
     "dev": "concurrently 'npm run server' 'npm run client'"
@@ -23,12 +23,17 @@
     "nodemon": "^2.0.15"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "concurrently": "^7.0.0",
     "eslint": "^8.9.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0"
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "mocha": "^9.2.0",
+    "mongodb-memory-server": "^6.9.6",
+    "sinon": "^13.0.1"
   }
 }
