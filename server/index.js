@@ -1,10 +1,20 @@
-const app = require('express')();
-// const bodyParser = require('body-parser');
+const express = require('express');
 
-// app.use(bodyParser);
+const app = express();
 
-app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Sucesso' });
-});
+const routeTasksList = require('./routes/tasksList');
+const error = require('./middlewares/error');
 
-app.listen(3001, () => console.log('Online 3001'));
+require('dotenv').config();
+
+const PORT = process.env.PORT || 3001;
+
+app.use(express.json());
+
+app.use('/tasks', routeTasksList);
+
+app.use(error);
+
+app.listen(PORT, () => console.log(`Online na porta ${PORT}`));
+
+module.exports = app;
