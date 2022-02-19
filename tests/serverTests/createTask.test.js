@@ -76,4 +76,29 @@ describe('POST / tasks - create task', () => {
       expect(response.body.message).to.be.equals('Task already registered');
     });
   });
+
+  describe('Quando a Task é criada com sucesso', () => {
+    let response;
+    before(async () => {
+      response = await chai.request(server)
+        .post('/tasks')
+        .send({
+          name: 'task-2',
+          status: 'pendente',
+        });
+    });
+
+    it('retorna codigo de status 201', () => {
+      expect(response).to.have.status(201);
+    });
+    it('retorna um objeto no body', () => {
+      expect(response.body).to.be.an('object');
+    });
+    it('Objeto de resposta possui propriedade "message"', () => {
+      expect(response.body).to.have.property('message');
+    });
+    it('Propriedade message contem valor "task created successfully"', () => {
+      expect(response.body.message).to.be.equals('task created successfully');
+    });
+  });
 });
